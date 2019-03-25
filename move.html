@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>js gameproject</title>
+        <style></style>
+    </head>
+    <body>
+        
+        <canvas  id="a" width="1350px" height="500px" style="background-color:yellow;"></canvas>
+        <button onclick="m1()" onkeyup="">Start</button>
+        <!--<button onclick="up()" >up</button>
+        <button onclick="down()">down</button>
+        <button onclick="left()">left</button>
+        <button onclick="right()" >right</button>-->
+        <button onclick="stop()">stop</button>
+         <audio controls>
+            <source src="C:\Users\DM\Desktop\Super Mario Bros. medley.mp3" type="audio/mp4">
+         </audio>
+        <script>
+            var rand1=200,rand2=0,p=0,q=0,r=0,i=0,dt=100,x=500,x1=100,y1=0,y2=300,y3=250,y4=0;
+            var a=document.getElementById("a");
+            var b=a.getContext("2d");
+            var c=a.getContext("2d");
+            var d=a.getContext("2d");
+            b.fillStyle="red";
+            b.fillRect(100,250,50,50);
+            c.fillStyle="green";
+            c.fillRect(500,0,50,200);
+            d.fillRect(500,300,50,200);
+            b.font="30px Arial";
+            b.fillText("Score:0",700,30);
+            function m1()
+            {
+                i=setInterval(move,20);
+            function move()
+            {
+                c.clearRect(x-q,y1,50,200);
+                d.clearRect(x-q,y2,50,200);
+                q=q+10;
+                c.fillStyle="green";
+                c.fillRect(x-q,y1,50,200);
+                d.fillRect(x-q,y2,50,200);
+                    if(q%(x+600)==0)
+                    {
+                        q=0
+                        dt=dt+100; 
+                        //x=x+100; 
+                         rand1 =Math.floor(Math.random() * (+500 - +300 + 1)) + +300; 
+                         rand2 =Math.floor(Math.random() * (400 - + -100 + 1)) + -100;
+                         y2=rand1;
+                         r=rand2; 
+                    }
+                c.fillStyle="green";
+                c.fillRect(x+dt-q,y1,50,r);
+                d.fillRect(x+dt-q,y2,50,200);
+                b.fillText("Score:0",700,30);
+                c.clearRect(x+dt-q,y1,50,r);
+                d.clearRect(x+dt-q,y2,50,200);    
+            }
+            }
+            function stop()
+            {
+                clearInterval(i);
+                r=0;
+            }
+            function up()
+            {    b.clearRect(x1,y3,50,50);
+                b.clearRect(x1,y3,50,50);
+                y3=y3-10;
+                b.fillStyle="red";
+                b.fillRect(x1,y3,50,50);
+            }
+            function down()
+            {
+                b.clearRect(x1,y3,50,50);
+                b.clearRect(x1,y3,50,50);
+                y3=y3+10;
+                b.fillStyle="red";
+                b.fillRect(x1,y3,50,50);
+            }
+            window.addEventListener('keydown',function(event)
+            {
+                switch(event.keyCode)
+                {
+                    case 38:
+                    up();
+                    break;
+                    case 40:
+                    down();
+                    break;
+                    case 37:
+                    left();
+                    break;
+                    case 39:
+                    right();
+                    break;
+                    case 32:
+                    clearInterval(i);
+                    break;
+                }
+            },false)
+            /*window.addEventListener('keyup',function(event)
+            {
+                b.fillStyle="red";
+                b.clearRect(100,0,50,600);
+            b.fillRect(100,550,50,50);
+            },false)*/
+            function right()
+            {
+                b.clearRect(x1,y3,50,50);
+                x1=x1+10;
+                b.fillStyle="red";
+                b.fillRect(x1,y3,50,50);
+
+            }
+            function left()
+            {
+                b.clearRect(x1,y3,50,50);
+                x1=x1-10;
+                b.fillStyle="red";
+                b.fillRect(x1,y3,50,50);
+
+            }
+        </script>
+    </body>
+</html>
